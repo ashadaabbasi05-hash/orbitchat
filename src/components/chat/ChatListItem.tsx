@@ -51,14 +51,14 @@ const ChatListItem: React.FC<ChatListItemProps> = ({
     <button
       onClick={onClick}
       className={cn(
-        'w-full flex items-center gap-3 p-4 rounded-xl transition-all duration-200',
+        'w-full flex items-center gap-2 md:gap-3 p-3 md:p-4 rounded-xl transition-all duration-200',
         'hover:bg-card/80 border border-transparent',
         isActive && 'bg-card border-primary/30 shadow-glow-sm'
       )}
     >
       {/* Avatar with online indicator */}
-      <div className="relative">
-        <Avatar className="w-12 h-12 ring-2 ring-border">
+      <div className="relative shrink-0">
+        <Avatar className="w-10 md:w-12 h-10 md:h-12 ring-2 ring-border">
           <AvatarImage src={avatarUrl || undefined} />
           <AvatarFallback className="bg-primary/20 text-primary font-medium">
             {(displayName || username)[0].toUpperCase()}
@@ -77,7 +77,7 @@ const ChatListItem: React.FC<ChatListItemProps> = ({
       {/* Content */}
       <div className="flex-1 min-w-0 text-left">
         <div className="flex items-center justify-between gap-2">
-          <p className={cn('font-medium truncate', hasUnread ? 'text-white font-semibold' : 'text-foreground')}>
+          <p className={cn('font-medium truncate text-sm md:text-base', hasUnread ? 'text-white font-semibold' : 'text-foreground')}>
             {displayName || username}
           </p>
           {lastMessageTime && (

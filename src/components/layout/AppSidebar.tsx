@@ -16,7 +16,12 @@ const navItems = [
   { icon: Settings, label: 'Settings', path: '/settings' },
 ];
 
-const AppSidebar: React.FC = () => {
+interface AppSidebarProps {
+  onClose?: () => void;
+  isMobile?: boolean;
+}
+
+const AppSidebar: React.FC<AppSidebarProps> = ({ onClose, isMobile }) => {
   const location = useLocation();
   const { profile } = useAuth();
   const pendingRequestsCount = usePendingRequestsCount();
@@ -32,7 +37,12 @@ const AppSidebar: React.FC = () => {
   });
 
   return (
-    <aside className="fixed left-0 top-0 h-screen w-64 bg-sidebar border-r border-sidebar-border flex flex-col">
+    <aside
+      className={cn(
+        'w-64 h-screen md:h-auto bg-sidebar border-r border-sidebar-border flex flex-col overflow-y-auto',
+        isMobile && 'pt-16'
+      )}
+    >
       {/* Logo */}
       <div className="p-6">
         <OrbitLogo size="md" />
@@ -48,6 +58,7 @@ const AppSidebar: React.FC = () => {
             return (
               <li key={item.path}>
                 <NavLink
+                  onClick={onClose}
                   to={item.path}
                   className={cn(
                     'flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200',

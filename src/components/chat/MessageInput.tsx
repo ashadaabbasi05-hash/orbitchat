@@ -34,9 +34,9 @@ const MessageInput: React.FC<MessageInputProps> = ({
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex items-end gap-3 p-4 border-t border-border bg-card/50 backdrop-blur-sm"
+      className="flex items-end gap-2 md:gap-3 p-3 md:p-4 border-t border-border bg-card/50 backdrop-blur-sm"
     >
-      <div className="flex items-center gap-2 text-muted-foreground text-xs">
+      <div className="hidden md:flex items-center gap-2 text-muted-foreground text-xs shrink-0">
         <Lock className="w-3.5 h-3.5" />
         <span>E2E</span>
       </div>
@@ -73,7 +73,7 @@ const MessageInput: React.FC<MessageInputProps> = ({
         type="submit"
         size="icon"
         disabled={!message.trim() || disabled}
-        className="h-12 w-12 rounded-xl shadow-button"
+        className="h-12 w-12 md:h-12 md:w-12 rounded-xl shadow-button shrink-0"
       >
         <Send className="w-5 h-5" />
       </Button>

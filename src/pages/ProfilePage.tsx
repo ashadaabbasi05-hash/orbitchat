@@ -117,17 +117,17 @@ const ProfilePage: React.FC = () => {
   return (
     <div className="h-screen overflow-y-auto scrollbar-thin">
       {/* Header with gradient */}
-      <div className="relative h-48 bg-gradient-to-br from-primary/40 via-primary/20 to-accent/30">
+      <div className="relative h-32 md:h-48 bg-gradient-to-br from-primary/40 via-primary/20 to-accent/30">
         <div className="absolute inset-0 bg-space-pattern opacity-50" />
       </div>
 
       {/* Profile Content */}
-      <div className="relative max-w-2xl mx-auto px-6 -mt-20">
+      <div className="relative max-w-2xl mx-auto px-4 md:px-6 -mt-16 md:-mt-20">
         {/* Avatar */}
         <div className="relative inline-block">
-          <Avatar className="w-32 h-32 ring-4 ring-background shadow-glow">
+          <Avatar className="w-24 md:w-32 h-24 md:h-32 ring-4 ring-background shadow-glow">
             <AvatarImage src={profile.avatar_url || undefined} />
-            <AvatarFallback className="bg-primary text-primary-foreground text-4xl font-bold">
+            <AvatarFallback className="bg-primary text-primary-foreground text-2xl md:text-4xl font-bold">
               {profile.username[0].toUpperCase()}
             </AvatarFallback>
           </Avatar>
@@ -138,19 +138,19 @@ const ProfilePage: React.FC = () => {
 
         {/* Profile Info */}
         <div className="mt-4">
-          <div className="flex items-start justify-between">
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
             <div>
-              <h1 className="text-2xl font-display font-bold">
+              <h1 className="text-xl md:text-2xl font-display font-bold">
                 {profile.display_name || profile.username}
               </h1>
-              <p className="text-muted-foreground">@{profile.username}</p>
+              <p className="text-sm md:text-base text-muted-foreground">@{profile.username}</p>
             </div>
             
             {!isEditing && (
               <Button
                 onClick={() => setIsEditing(true)}
                 variant="outline"
-                className="gap-2"
+                className="gap-2 w-full md:w-auto"
               >
                 <Edit2 className="w-4 h-4" />
                 Edit Profile
@@ -159,22 +159,22 @@ const ProfilePage: React.FC = () => {
           </div>
 
           {/* Badges */}
-          <div className="flex items-center gap-3 mt-4">
+          <div className="flex flex-wrap items-center gap-2 md:gap-3 mt-4">
             <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card border border-border text-sm">
               {profile.visibility === 'public' ? (
                 <>
                   <Globe className="w-4 h-4 text-primary" />
-                  <span>Public Account</span>
+                  <span className="text-xs md:text-sm">Public Account</span>
                 </>
               ) : (
                 <>
                   <Lock className="w-4 h-4 text-primary" />
-                  <span>Private Account</span>
+                  <span className="text-xs md:text-sm">Private Account</span>
                 </>
               )}
             </div>
             
-            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card border border-border text-sm text-muted-foreground">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card border border-border text-xs md:text-sm text-muted-foreground">
               <Calendar className="w-4 h-4" />
               <span>Joined {format(new Date(profile.created_at), 'MMM yyyy')}</span>
             </div>
@@ -182,9 +182,9 @@ const ProfilePage: React.FC = () => {
         </div>
 
         {/* Edit Form or Bio Display */}
-        <div className="mt-8">
+        <div className="mt-6 md:mt-8">
           {isEditing ? (
-            <div className="space-y-6 p-6 rounded-2xl bg-card border border-border">
+            <div className="space-y-6 p-4 md:p-6 rounded-2xl bg-card border border-border">
               <div className="space-y-2">
                 <Label htmlFor="displayName">Display Name</Label>
                 <Input

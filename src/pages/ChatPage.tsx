@@ -303,9 +303,9 @@ const ChatPage: React.FC = () => {
   }
 
   return (
-    <div className="h-screen flex flex-col">
+    <div className="h-screen flex flex-col overflow-hidden">
       {/* Header */}
-      <header className="flex items-center gap-4 px-4 py-3 border-b border-border bg-card/50 backdrop-blur-sm">
+      <header className="flex items-center gap-2 md:gap-4 px-3 md:px-4 py-3 border-b border-border bg-card/50 backdrop-blur-sm shrink-0">
         <Button
           variant="ghost"
           size="icon"
@@ -316,9 +316,9 @@ const ChatPage: React.FC = () => {
         </Button>
 
         {participant && (
-          <div className="flex items-center gap-3 flex-1 min-w-0">
-            <div className="relative">
-              <Avatar className="w-10 h-10 ring-2 ring-border">
+          <div className="flex items-center gap-2 md:gap-3 flex-1 min-w-0">
+            <div className="relative shrink-0">
+              <Avatar className="w-8 md:w-10 h-8 md:h-10 ring-2 ring-border">
                 <AvatarImage src={participant.avatar_url || undefined} />
                 <AvatarFallback className="bg-primary/20 text-primary">
                   {(participant.display_name || participant.username)[0].toUpperCase()}
@@ -329,31 +329,31 @@ const ChatPage: React.FC = () => {
               </div>
             </div>
             <div className="min-w-0">
-              <h2 className="font-semibold truncate">
+              <h2 className="font-semibold truncate text-sm md:text-base">
                 {participant.display_name || participant.username}
               </h2>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-muted-foreground hidden md:block">
                 {participant.is_online ? 'Online' : 'Offline'}
               </p>
             </div>
           </div>
         )}
 
-        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 text-xs text-primary">
+        <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 text-xs text-primary shrink-0">
           <Lock className="w-3.5 h-3.5" />
           <span>E2E Encrypted</span>
         </div>
       </header>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto p-4 scrollbar-thin">
+      <div className="flex-1 overflow-y-auto p-3 md:p-4 scrollbar-thin scrollbar-thumb-rounded scrollbar-track-rounded">
         {messages.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full text-center">
-            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 animate-fade-in">
-              <Lock className="w-8 h-8 text-primary" />
+            <div className="w-12 md:w-16 h-12 md:h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 animate-fade-in">
+              <Lock className="w-6 md:w-8 h-6 md:h-8 text-primary" />
             </div>
-            <h3 className="text-lg font-semibold mb-2 animate-fade-in">Start of your encrypted chat</h3>
-            <p className="text-muted-foreground max-w-sm animate-fade-in">
+            <h3 className="text-base md:text-lg font-semibold mb-2 animate-fade-in">Start of your encrypted chat</h3>
+            <p className="text-sm md:text-base text-muted-foreground max-w-sm animate-fade-in">
               Messages are end-to-end encrypted. No one outside of this chat can read them.
             </p>
           </div>
@@ -376,11 +376,13 @@ const ChatPage: React.FC = () => {
       </div>
 
       {/* Input */}
-      <MessageInput
+      <div className="shrink-0">
+        <MessageInput
         onSend={handleSendMessage}
         disabled={sending}
         placeholder="Type an encrypted message..."
-      />
+        />
+      </div>
     </div>
   );
 };

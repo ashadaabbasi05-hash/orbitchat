@@ -20,9 +20,9 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({
   // System messages have different styling
   if (isSystem) {
     return (
-      <div className="flex w-full mb-3 justify-center">
-        <div className="max-w-[85%] rounded-xl px-4 py-2.5 bg-muted/50 border border-border/50 text-center animate-fade-in">
-          <p className="text-sm text-muted-foreground italic">{content}</p>
+        <div className="flex w-full mb-3 justify-center px-3">
+          <div className="max-w-[95%] md:max-w-[85%] rounded-xl px-4 py-2.5 bg-muted/50 border border-border/50 text-center animate-fade-in">
+            <p className="text-xs md:text-sm text-muted-foreground italic">{content}</p>
           <span className="text-xs text-muted-foreground/60 mt-1 block">
             {format(new Date(timestamp), 'p')}
           </span>
@@ -40,13 +40,13 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({
     >
       <div
         className={cn(
-          'max-w-[75%] rounded-2xl px-4 py-2.5 animate-fade-in',
+          'max-w-[90%] md:max-w-[75%] rounded-2xl px-3 md:px-4 py-2.5 animate-fade-in',
           isSender
             ? 'bg-primary text-primary-foreground rounded-br-md'
             : 'bg-card border border-border text-card-foreground rounded-bl-md'
         )}
       >
-        <p className="text-sm whitespace-pre-wrap break-words">{content}</p>
+        <p className="text-sm whitespace-pre-wrap break-words leading-relaxed">{content}</p>
         <div
           className={cn(
             'flex items-center gap-1.5 mt-1',
@@ -70,7 +70,7 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({
           )}
           <span
             className={cn(
-              'text-xs',
+              'text-xs whitespace-nowrap',
               isSender ? 'text-primary-foreground/60' : 'text-muted-foreground'
             )}
           >

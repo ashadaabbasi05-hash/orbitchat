@@ -197,34 +197,34 @@ const HomePage: React.FC = () => {
   });
 
   return (
-    <div className="h-screen flex flex-col">
+    <div className="h-screen flex flex-col overflow-hidden">
       {/* Header */}
-      <header className="flex items-center justify-between px-6 py-4 border-b border-border bg-card/30 backdrop-blur-sm">
-        <h1 className="text-2xl font-display font-bold text-primary">Home</h1>
-        <div className="relative w-72">
+      <header className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 px-4 md:px-6 py-4 border-b border-border bg-card/30 backdrop-blur-sm shrink-0">
+        <h1 className="text-xl md:text-2xl font-display font-bold text-primary">Home</h1>
+        <div className="relative w-full md:w-72">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <Input
             placeholder="Search chats..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-10 h-10"
+            className="pl-10 h-10 w-full"
           />
         </div>
       </header>
 
       {/* Chat List */}
-      <div className="flex-1 overflow-y-auto p-4 scrollbar-thin">
+      <div className="flex-1 overflow-y-auto p-3 md:p-4 scrollbar-thin">
         {loading ? (
           <div className="flex items-center justify-center h-64">
             <Loader2 className="w-8 h-8 text-primary animate-spin" />
           </div>
         ) : filteredChats.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-64 text-center">
-            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-              <MessageSquare className="w-8 h-8 text-primary" />
+            <div className="w-12 md:w-16 h-12 md:h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+              <MessageSquare className="w-6 md:w-8 h-6 md:h-8 text-primary" />
             </div>
-            <h3 className="text-lg font-semibold mb-2">No conversations yet</h3>
-            <p className="text-muted-foreground max-w-sm">
+            <h3 className="text-base md:text-lg font-semibold mb-2">No conversations yet</h3>
+            <p className="text-sm md:text-base text-muted-foreground max-w-sm px-4">
               Search for users to start a new encrypted conversation
             </p>
           </div>
