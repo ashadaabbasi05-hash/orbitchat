@@ -115,7 +115,7 @@ const ProfilePage: React.FC = () => {
   };
 
   return (
-    <div className="h-screen overflow-y-auto scrollbar-thin">
+    <div className="min-h-screen overflow-y-auto scrollbar-thin pb-20 md:pb-0">
       {/* Header with gradient */}
       <div className="relative h-32 md:h-48 bg-gradient-to-br from-primary/40 via-primary/20 to-accent/30">
         <div className="absolute inset-0 bg-space-pattern opacity-50" />

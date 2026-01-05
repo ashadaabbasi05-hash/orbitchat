@@ -8,7 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { usePendingRequestsCount } from '@/hooks/use-pending-requests';
 import { useUnreadMessagesCount } from '@/hooks/use-unread-messages';
 
-const navItems = [
+export const navItems = [
   { icon: Home, label: 'DMs', path: '/home' },
   { icon: Search, label: 'Search', path: '/search' },
   { icon: Inbox, label: 'Requests', path: '/requests' },

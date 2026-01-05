@@ -197,7 +197,7 @@ const HomePage: React.FC = () => {
   });
 
   return (
-    <div className="h-screen flex flex-col overflow-hidden">
+    <div className="min-h-screen flex flex-col overflow-hidden pb-20 md:pb-0">
       {/* Header */}
       <header className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 px-4 md:px-6 py-4 border-b border-border bg-card/30 backdrop-blur-sm shrink-0">
         <h1 className="text-xl md:text-2xl font-display font-bold text-primary">Home</h1>

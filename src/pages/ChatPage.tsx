@@ -303,7 +303,7 @@ const ChatPage: React.FC = () => {
   }
 
   return (
-    <div className="h-screen flex flex-col overflow-hidden">
+    <div className="min-h-screen flex flex-col overflow-hidden pb-20 md:pb-0">
       {/* Header */}
       <header className="flex items-center gap-2 md:gap-4 px-3 md:px-4 py-3 border-b border-border bg-card/50 backdrop-blur-sm shrink-0">
         <Button
