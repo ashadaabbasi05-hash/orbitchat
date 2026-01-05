@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Space-themed dark purple palette */
+    --background: 260 25% 7%;
+    --foreground: 270 20% 95%;
+
+    --card: 260 30% 10%;
+    --card-foreground: 270 20% 95%;
+
+    --popover: 260 30% 12%;
+    --popover-foreground: 270 20% 95%;
+
+    --primary: 270 70% 60%;
+    --primary-foreground: 270 20% 98%;
+
+    --secondary: 260 30% 16%;
+    --secondary-foreground: 270 20% 90%;
+
+    --muted: 260 25% 14%;
+    --muted-foreground: 270 15% 55%;
+
+    --accent: 300 65% 55%;
+    --accent-foreground: 270 20% 98%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 270 30% 20%;
+    --input: 260 30% 15%;
+    --ring: 270 70% 60%;
+
+    --radius: 0.75rem;
+
+    /* Custom colors */
+    --glow-purple: 270 70% 60%;
+    --glow-pink: 300 65% 55%;
+    --glow-cyan: 190 80% 50%;
+    --success: 150 60% 45%;
+    --warning: 40 90% 55%;
+    --online: 150 80% 50%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(270 70% 60%) 0%, hsl(300 65% 55%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(260 30% 12%) 0%, hsl(260 30% 8%) 100%);
+    --gradient-glow: radial-gradient(ellipse at center, hsl(270 70% 60% / 0.15) 0%, transparent 70%);
+    --gradient-hero: linear-gradient(180deg, hsl(260 25% 7%) 0%, hsl(270 30% 12%) 100%);
+
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(270 70% 60% / 0.3);
+    --shadow-glow-sm: 0 0 20px hsl(270 70% 60% / 0.2);
+    --shadow-card: 0 4px 24px hsl(260 50% 5% / 0.5);
+    --shadow-button: 0 4px 16px hsl(270 70% 60% / 0.25);
+
+    /* Sidebar */
+    --sidebar-background: 260 30% 8%;
+    --sidebar-foreground: 270 15% 85%;
+    --sidebar-primary: 270 70% 60%;
+    --sidebar-primary-foreground: 270 20% 98%;
+    --sidebar-accent: 270 30% 18%;
+    --sidebar-accent-foreground: 270 20% 95%;
+    --sidebar-border: 270 25% 18%;
+    --sidebar-ring: 270 70% 60%;
+  }
+
+  .dark {
+    /* Same as root - app is dark by default */
+    --background: 260 25% 7%;
+    --foreground: 270 20% 95%;
+    --card: 260 30% 10%;
+    --card-foreground: 270 20% 95%;
+    --popover: 260 30% 12%;
+    --popover-foreground: 270 20% 95%;
+    --primary: 270 70% 60%;
+    --primary-foreground: 270 20% 98%;
+    --secondary: 260 30% 16%;
+    --secondary-foreground: 270 20% 90%;
+    --muted: 260 25% 14%;
+    --muted-foreground: 270 15% 55%;
+    --accent: 300 65% 55%;
+    --accent-foreground: 270 20% 98%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 270 30% 20%;
+    --input: 260 30% 15%;
+    --ring: 270 70% 60%;
+    --sidebar-background: 260 30% 8%;
+    --sidebar-foreground: 270 15% 85%;
+    --sidebar-primary: 270 70% 60%;
+    --sidebar-primary-foreground: 270 20% 98%;
+    --sidebar-accent: 270 30% 18%;
+    --sidebar-accent-foreground: 270 20% 95%;
+    --sidebar-border: 270 25% 18%;
+    --sidebar-ring: 270 70% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .glow-purple {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .glow-purple-sm {
+    box-shadow: var(--shadow-glow-sm);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .gradient-glow {
+    background: var(--gradient-glow);
+  }
+
+  .glass {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50;
+  }
+
+  .glass-strong {
+    @apply bg-card/90 backdrop-blur-2xl border border-border/60;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(var(--primary) / 0.5);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Custom scrollbar for the entire app */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
+
+/* Focus styles */
+:focus-visible {
+  @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+}
+
+/* Selection */
+::selection {
+  background: hsl(var(--primary) / 0.3);
+  color: hsl(var(--foreground));
+}

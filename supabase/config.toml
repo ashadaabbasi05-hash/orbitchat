@@ -1,0 +1,4 @@
+project_id = "dekzrkjnhwvbmagclurk"
+
+[functions.key-exchange]
+verify_jwt = false

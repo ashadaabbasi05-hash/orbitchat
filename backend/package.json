@@ -1,0 +1,37 @@
+{
+  "name": "orbit-secure-chat-backend",
+  "version": "1.0.0",
+  "description": "Backend server for Orbit Chat - Secure encrypted messaging",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "lint": "eslint src --ext .ts",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": ["chat", "encryption", "e2ee", "secure", "messaging"],
+  "author": "Orbit Chat",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "dotenv": "^16.3.1",
+    "@supabase/supabase-js": "^2.38.4",
+    "zod": "^3.22.4",
+    "winston": "^3.11.0",
+    "express-rate-limit": "^7.1.5",
+    "jsonwebtoken": "^9.1.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "@types/node": "^20.10.5",
+    "@types/express": "^4.17.21",
+    "tsx": "^4.7.0",
+    "eslint": "^8.56.0",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0"
+  }
+}
