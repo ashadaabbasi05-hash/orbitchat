@@ -15,4 +15,16 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    // Output to dist folder for Vercel deployment
+    outDir: "dist",
+    // Ensure all assets are properly emitted
+    emptyOutDir: true,
+    // Generate sourcemaps for debugging in production
+    sourcemap: false,
+  },
+  preview: {
+    // SPA fallback for local preview
+    port: 3000,
+  },
 }));
